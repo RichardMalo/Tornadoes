@@ -145,6 +145,7 @@ function createLegend() {
 // Main function that initializes the plot, legend, and year selector
 function init() {
   loadData().then(createPlot);
+  populateYearSelector();
   createLegend()
 }
 
