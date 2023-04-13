@@ -22,17 +22,21 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+    
+    <div class="row">
+    <div class="col-md-2">
+    
     <div class="well">
         <h5>Tornado Year:</h5>
         <select id="selDataset" onchange="optionChanged(this.value)"></select>
-    </div>
+    </div></div></div>
     <!-- Create a div to hold the plot -->
     <div id="myDiv"></div>
     <div id="Mapit"></div>
     
     <!-- Load the custom script that creates the plot and the dropdown menus -->
     <script src="yearselector.js"></script>
-    <script src="tornadobymag.js"></script>\
+    <script src="tornadograph.js"></script>\
     <!-- <script src="tornadomap.js"></script>\ -->
   </body>
 </html>
