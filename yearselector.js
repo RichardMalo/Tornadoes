@@ -4,7 +4,7 @@ d3.csv('1950-2021_torn.csv').then(function(data) {
     // Convert the set to an array and sort it in ascending order
     let sortedYears = Array.from(uniqueYears).sort();
     // Add "ALL YEARS" to the beginning of the sortedYears array
-    sortedYears.unshift("1950-2021");
+    // sortedYears.unshift("1950-2021");
     
     // Create a selection for the dropdown menu
     let selectTab = d3.select("#selDataset");
@@ -13,4 +13,4 @@ d3.csv('1950-2021_torn.csv').then(function(data) {
     sortedYears.forEach(year => {
       selectTab.append("option").text(year);
     });
-  });
+  });  
