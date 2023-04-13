@@ -1,7 +1,7 @@
 // Filters the data based on the magnitude range of the tornado events.
 function filterData(data) {
   return data.filter(function(rawData) {
-    return rawData.mag >= 1 && rawData.mag <= 5;
+    return rawData.mag >= 0 && rawData.mag <= 5;
   });
 }
 
@@ -77,7 +77,7 @@ function createLayout() {
 }
 // Creates and updates the plot with the given data and year filter.
 function createPlot(data, year) {
-  // Filter the data based on the specified magnitude range (1-5).
+  // Filter the data based on the specified magnitude range (0-5).
   let filteredData = filterData(data);
   // If specific year is provided, filter the data based on that year.
   if (year) {
@@ -86,19 +86,21 @@ function createPlot(data, year) {
     });
   }
   // Group the data that was filtered by year for each EF tornado scale 1-5.
+  let magYear0 = groupData(filteredData, '0');
   let magYear1 = groupData(filteredData, '1');
   let magYear2 = groupData(filteredData, '2');
   let magYear3 = groupData(filteredData, '3');
   let magYear4 = groupData(filteredData, '4');
   let magYear5 = groupData(filteredData, '5');
   // Current Colors with increasing intensity based on 1-5.
-  let trace1 = createTrace(magYear1, '1', 'FFCC99');
-  let trace2 = createTrace(magYear2, '2', 'FFA07A');
-  let trace3 = createTrace(magYear3, '3', 'FF7F50');
-  let trace4 = createTrace(magYear4, '4', 'FF4500');
-  let trace5 = createTrace(magYear5, '5', 'FF0000');
+  let trace0 = createTrace(magYear0, '0', '#ffa600');
+  let trace1 = createTrace(magYear1, '1', '#f18e06');
+  let trace2 = createTrace(magYear2, '2', '#e4750a');
+  let trace3 = createTrace(magYear3, '3', '#d65c0d');
+  let trace4 = createTrace(magYear4, '4', '#c83f0d');
+  let trace5 = createTrace(magYear5, '5', '#bf000b');
   // Combine all traces into a single array for plotting.
-  let traceData = [trace1, trace2, trace3, trace4, trace5];
+  let traceData = [trace0, trace1, trace2, trace3, trace4, trace5];
   // Calls on the above created layout to be the variable that will go into the Plotly below.
   let layout = createLayout();
   // Plotly display of this data.
@@ -108,7 +110,7 @@ function createPlot(data, year) {
 // Interactive legend for toggling visibility of each magnitude trace.
 function createLegend() {
   // Legend Items Showing Magnitude strenght of the storm.
-  let legendItems = ['Magnitude 1', 'Magnitude 2', 'Magnitude 3', 'Magnitude 4', 'Magnitude 5'];
+  let legendItems = ['Magnitude 0', 'Magnitude 1', 'Magnitude 2', 'Magnitude 3', 'Magnitude 4', 'Magnitude 5'];
   // storing initial variable and the state of visibility for the display
   let visibleTraces = [true, true, true, true, true];
   // The toggle Button becomes the Legend itself.
@@ -143,8 +145,7 @@ function createLegend() {
 // Main function that initializes the plot, legend, and year selector
 function init() {
   loadData().then(createPlot);
-  createLegend();
-  populateYearSelector();
+  createLegend()
 }
 
 // Start the visualization
