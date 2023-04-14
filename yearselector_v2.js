@@ -35,3 +35,8 @@ function optionChanged(selectedYear) {
     }
   });
 }
+
+// This could break the code. Experimenting with global usable JS loader vs individual loading.
+window.loadData = loadData;
+window.populateYearSelector = populateYearSelector;
+window.optionChanged = optionChanged;
