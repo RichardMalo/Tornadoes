@@ -14,29 +14,76 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet.polylineDecorator@1.6.0/dist/leaflet.polylineDecorator.min.js"></script> -->
   <style>
+    #title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .equal-height {
+      display: flex;
+      justify-content: center;
+    }
+    .well {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .box-container {
+      margin-bottom: 30px;
+    }
     #Mapit {
       height: 500px;
     }
+    h5 {
+      font-size: 18px;
+    }
   </style>
-  <title>Tornados 1950-2021</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-    
-    <div class="row">
-    <div class="col-md-2">
-    
-    <div class="well">
+  
+  <div id="title">US Tornadoes 1950-2021</div>
+  <div class="row equal-height box-container" style="display: flex;">
+    <div class="col-md-2" style="margin-right: 100px;">
+      <div class="well" id="box1">
         <h5>Tornado Year:</h5>
         <select id="selDataset" onchange="optionChanged(this.value)"></select>
-    </div></div></div>
-    <!-- Create a div to hold the plot -->
-    <div id="myDiv"></div>
-    <div id="Mapit"></div>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-right: 50px;">
+      <div class="well" id="box2">
+        <h5>Tornado Count:</h5>
+        <p id="tornadoCountText">0</p>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-left: 50px;">
+      <div class="well" id="box3">
+        <h5>Tornado Fatalities:</h5>
+        <p id="fatalitiesText">0</p>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-left: 100px;">
+      <div class="well" id="box4">
+        <h5>Tornado Injuries:</h5>
+        <p id="injuriesText">0</p>
+      </div>
+    </div>
+  </div>
+  <div id="newDiv"></div>
+  <!-- Create a div to hold the plot -->
+  <div id="myDiv"></div>
+  <!-- div for map-->
+  <div id="Mapit"></div>
+  
+  <span id="selectedYear"></span>
     
-    <!-- Load the custom script that creates the plot and the dropdown menus -->
-    <script src="yearselector_v2.js"></script>
-    <script src="tornadograph_v2.js"></script>\
-    <!-- <script src="tornadomap.js"></script>\ -->
+  <!-- Load the custom scripts that create the plots and the dropdown menus and fill in the boxes with calculated information-->
+  <script src="yearselector_v2.js"></script>
+  <script src="consolelogwhatyear.js"></script>
+  <script src="box123.js"></script>
+  <script src="tornadograph_v2.js"></script>
+   
+  <!-- <script src="tornadomap.js"></script>\ -->
   </body>
 </html>
