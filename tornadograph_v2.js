@@ -14,10 +14,19 @@ function groupData(filteredData, mag) {
 }
 // Creates a trace object with the specified data, magnitude, and color.
 function createTrace(data, mag, color) {
+  // Created variables with a better definition than previous just EF Scale + mag. This will be a better legend and give a better story.
+  let efDescriptions = [
+    'EF0 (65–85 mph): Light damage',
+    'EF1 (86–110 mph): Moderate damage',
+    'EF2 (111–135 mph): Considerable damage',
+    'EF3 (136–165 mph): Severe damage',
+    'EF4 (166–200 mph): Devastating damage',
+    'EF5 (>200 mph): Incredible damage',
+  ];
   return {
     x: data.map(function(x1) { return x1.key; }),
     y: data.map(function(y1) { return y1.value; }),
-    name: 'EF Scale ' + mag,
+    name: efDescriptions[mag],
     type: 'bar',
     marker: {
       color: color
@@ -63,7 +72,7 @@ function createLayout() {
     },
     legend: {
         title: {
-        text: 'Tornado Magnitude: <br>(Click/Double Click<br>To Toggle EF Value)<br>',
+        text: 'Tornado Magnitude/<br>Enhanced Fujita Scale:<br>(Click/Double Click<br>To Toggle Display)<br>',
         font: {
         size: 18
         }
