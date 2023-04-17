@@ -12,12 +12,21 @@ function groupData(filteredData, mag) {
     .rollup(function(v) { return d3.sum(v, function(magVal) { return magVal.mag === mag ? 1 : 0; }); })
     .entries(filteredData);
 }
-// Creates a trace object with the specified data, magnitude, and color.
 function createTrace(data, mag, color) {
+  // Array containing EF scale descriptions
+  let efDescriptions = [
+    'EF0 (65–85 mph): Light damage',
+    'EF1 (86–110 mph): Moderate damage',
+    'EF2 (111–135 mph): Considerable damage',
+    'EF3 (136–165 mph): Severe damage',
+    'EF4 (166–200 mph): Devastating damage',
+    'EF5 (>200 mph): Incredible damage',
+  ];
+
   return {
     x: data.map(function(x1) { return x1.key; }),
     y: data.map(function(y1) { return y1.value; }),
-    name: 'EF Scale ' + mag,
+    name: efDescriptions[mag], // Use the EF scale descriptions in the legend
     type: 'bar',
     marker: {
       color: color
