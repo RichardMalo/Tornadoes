@@ -26,7 +26,8 @@ function createTrace(data, mag, color) {
   return {
     x: data.map(function(x1) { return x1.key; }),
     y: data.map(function(y1) { return y1.value; }),
-    name: efDescriptions[mag], // Use the EF scale descriptions in the legend
+    // Use the EF scale descriptions in the legend
+    name: efDescriptions[mag], 
     type: 'bar',
     marker: {
       color: color
@@ -160,3 +161,5 @@ function init() {
 
 // Start the visualization
 init();
+
+//
