@@ -19,53 +19,54 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <!-- <script src="https://cdn.jsdelivr.net/npm/leaflet.polylineDecorator@1.6.0/dist/leaflet.polylineDecorator.min.js"></script> -->
   
-  <div class="container">
-    <div class="row text-center">
-      <div class="p-5 mb-4 rounded-3">
-        <div class="container-fluid">
-          <h1 class="display-5 fw-bold text-info">US Tornadoes 1950-2021</h1>
-          <p class="fs-5">Analyze trends using interactive charts and change years to gain insights from the dataset.</p>
-        </div></div></div>
+  <body>
+    <div class="container">
+      <div class="row text-center">
+        <div class="p-3 mb-4 rounded-3">
+          <div class="container-fluid">
+            <h2 class="display-4 fw-bold text-info">US Tornadoes 1950-2021</h2>
+            <p class="fs-5">Analyze trends using interactive charts and change years to gain insights from the dataset.</p>
+          </div></div></div>
     
-    <div class="row text-center">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="well">
-          <h5>Tornado Year :</h5>
-          <select class="form-select form-select-lg mb-2" id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
+          <div class="row text-center">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="well">
+                  <h5>Chart Tornado Year :</h5>
+                  <select class="form-select form-select-lg mb-2" id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
       </div>
     </div></div>
     
     <div class="row">
       <div class="col-md-4">
-        <div class="card text-dark bg-info mb-4">
+        <div class="card text-dark bg-info mb-3" style="height: calc(4 / 5 * 100%);">
           <div class="card-header">
-            <h4 class="my-0 fw-normal text-center">Tornado Count</h4>
+            <h5 class="my-0 fw-normal text-center">Tornado Count</h5>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="height: calc(4 / 5 * 100%);">
             <p class="card-text counter" id="tornadoCountText">0</p>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card text-white bg-danger mb-4">
+        <div class="card text-white bg-danger mb-3" style="height: calc(4 / 5 * 100%);">
           <div class="card-header">
-            <h4 class="my-0 fw-normal text-center">Tornado Fatalities</h4>
+            <h5 class="my-0 fw-normal text-center">Tornado Fatalities</h5>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="height: calc(2 / 3 * 100%);">
             <p class="card-text counter" id="fatalitiesText">0</p>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card text-dark bg-warning mb-4">
+        <div class="card text-dark bg-warning mb-3" style="height: calc(4 / 5 * 100%);">
           <div class="card-header">
-            <h4 class="my-0 fw-normal text-center">Tornado Injuries</h4>
+            <h5 class="my-0 fw-normal text-center">Tornado Injuries</h5>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="height: calc(4 / 5 * 100%);">
             <p class="card-text counter" id="injuriesText">0</p>
           </div>
         </div>
@@ -75,8 +76,22 @@
    
   <div id="newDiv"></div>
   <!-- Create a div to hold the plot -->
-  <div id="myDiv"></div>
+  <div id="myDiv"></div><br>
   <!-- div for map-->
+
+
+  <div class="row text-center">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="well">
+          <h5>Map Tornado Year :</h5>
+          <select class="form-select form-select-lg mb-2" id="selDataset2" onchange="optionChanged2(this.value)"></select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
   <div id="Mapit"></div>
   
   <span id="selectedYear"></span>
