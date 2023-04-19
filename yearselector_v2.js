@@ -13,11 +13,13 @@ function populateYearSelector() {
     let sortedYears = Array.from(uniqueYears).sort();
     // Select the dropdown menu in the HTML by its ID
     let selectTab = d3.select("#selDataset");
+    let selectTab2 = d3.select("#selDataset2");
     // Add "1950-2021" option at the beginning
     selectTab.append("option").text("1950-2021");
     // Append each year to the selectTab
     sortedYears.forEach(year => {
       selectTab.append("option").text(year);
+      selectTab2.append("option").text(year);
     });
   });
 }
@@ -36,7 +38,17 @@ function optionChanged(selectedYear) {
   });
 }
 
+function optionChanged2(selectedYear2) {
+  loadData().then(function (data2) {
+    const filteredData2 = data2.filter(row1 => row1.yr === selectedYear2);
+    createMap(filteredData2);
+  });
+}
+
+
 // This could break the code. Experimenting with global usable JS loader vs individual loading.
 window.loadData = loadData;
 window.populateYearSelector = populateYearSelector;
 window.optionChanged = optionChanged;
+window.optionChanged2 = optionChanged2;
+
