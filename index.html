@@ -24,7 +24,7 @@
   <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh;">
     <h4 class="display-5 fw-bold text-info">US Tornado Data From: 1950-2021</h4>
     <p class="fs-5" style="text-align: center; margin-top: 20px;"><b>Use the Interactive CHARTS and MAP to learn more about Tornadoes in the US 1950-2021</b></p>
-    <h2 id="chart-section"><a href="#how-many" id="chart-section-link">CHART</a></h2>
+    <h2 id="chart-section"><a href="#how-many" id="chart-section-link">CHART</a>&nbsp &nbsp &nbsp<a href="#where" id="chart-section-link">MAP</a></h2>
     
 
 
@@ -84,12 +84,13 @@
     <!-- Create a div to hold the plot -->
   <div id="myDiv"></div><br></div><br><br><br><br>
   
+  <div id="where"></div>
   <div class="container-fluid">
     <div class="row text-center" id="map-section">
       <div class="row">
         <div class="col-xs-3">
           <div class="well">
-            <h5 id="map-section">WHERE THE TORNADOES HAPPENED BY YEAR:</h5>
+            <h4 id="map-section" class="small-margin-bottom"><b>Where Tornadoes Impact By Year:</h4></b>
             <select class="form-select form-select-lg mb-2" id="selDataset2" onchange="optionChanged2(this.value)"></select>
           </div>
         </div>
