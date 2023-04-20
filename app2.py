@@ -20,7 +20,7 @@ def index():
 @app.route('/data')
 def load_db_data():
     # Select the desired columns
-    selected_columns = ['yr', 'mag', 'inj', 'fat', 'slon', 'slat']
+    selected_columns = ['yr', 'mag', 'inj', 'fat', 'slon', 'slat']#, 'st', 'len', 'wid']  
 
     # Execute a raw SQL query to fetch the data
     data = db.execute(f"SELECT {', '.join(selected_columns)} FROM tornado_data").fetchall()
