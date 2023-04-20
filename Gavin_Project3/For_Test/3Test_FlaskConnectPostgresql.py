@@ -1,0 +1,2 @@
+sudo -iu postgres psql
+
