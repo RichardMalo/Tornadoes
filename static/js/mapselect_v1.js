@@ -23,17 +23,23 @@ async function extractSlonSlatForYear(selectedYear) {
       const mag = parseInt(row.mag);
       const slon = parseFloat(row.slon);
       const slat = parseFloat(row.slat);
+      const st = row.st;
+      const len = parseFloat(row.len);
+      const wid = parseFloat(row.wid);
 
       slonSlatData.push({
         mag: mag,
         slon: slon,
-        slat: slat
+        slat: slat,
+        st: st,
+        len: len,
+        wid: wid
       });
     }
   });
 
   return slonSlatData;
-}
+};
 
 // Add an event listener to the 'select' element that listens for changes to its value
 selectElement4.addEventListener('change', async function() {

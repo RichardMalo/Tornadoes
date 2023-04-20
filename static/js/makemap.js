@@ -60,22 +60,27 @@ function displayMap(slonSlatData) {
   // Sort slonSlatData by mag in descending order
   slonSlatData.sort((a, b) => b.mag - a.mag);
   
-  // Use similar method as from class to make the markers.
-  slonSlatData.forEach(row => {
-    const mag = parseInt(row.mag);
-    const color = getColor(mag);
-    const marker = L.circleMarker([row.slat, row.slon], {
-      color: color,
-      fillColor: color,
-      fillOpacity: 0.45,
-      radius: 5
-    });
-
-    marker.bindPopup(`EF Scale: ${mag}`);
-    circleMarkers.addLayer(marker);
+// Use similar method as from class to make the markers.
+slonSlatData.forEach(row => {
+  const mag = parseInt(row.mag);
+  const color = getColor(mag);
+  const marker = L.circleMarker([row.slat, row.slon], {
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.45,
+    radius: 5
   });
 
-  // Add the markers to the map.
+  marker.bindPopup(
+    `<b>State: </b>${row.st}<br>` + '<br>' +
+    `<b>EF Scale: </b>${mag}<br>` +
+    `<b>Length: </b>${row.len} miles<br>` +
+    `<b>Width: </b>${row.wid} yards`
+  );
+  circleMarkers.addLayer(marker);
+});
+
+// Add the markers to the map.
   circleMarkers.addTo(map);
 
   // Only create the legend if it doesn't exist yet
