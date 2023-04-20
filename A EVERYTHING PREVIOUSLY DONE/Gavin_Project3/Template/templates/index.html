@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tornadoes 1950 - 2021</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/styles.css') }}">
+    <!-- <script src="{{ url_for('static', filename='js/d3.min.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='../static/js/global.js') }}"></script>
+    
+  </head>
+  <body>
+    <div id="title">US Tornadoes 1950-2021</div>
+  <div class="row equal-height box-container" style="display: flex;">
+    <div class="col-md-2" style="margin-right: 100px;">
+      <div class="well" id="box1">
+        <h5>Tornado Year:</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-right: 50px;">
+      <div class="well" id="box2">
+        <h5>Tornado Count:</h5>
+        <p id="tornadoCountText">0</p>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-left: 50px;">
+      <div class="well" id="box3">
+        <h5>Tornado Fatalities:</h5>
+        <p id="fatalitiesText">0</p>
+      </div>
+    </div>
+  
+    <div class="col-md-2" style="margin-left: 100px;">
+      <div class="well" id="box4">
+        <h5>Tornado Injuries:</h5>
+        <p id="injuriesText">0</p>
+      </div>
+    </div>
+  </div>
+  <div id="newDiv"></div>
+  <!-- Create a div to hold the plot -->
+  <div id="myDiv"></div>
+  <!-- div for map-->
+  <div id="Mapit"></div>
+  
+  <span id="selectedYear"></span>
+  <div id="FatChartDiv"></div>
+  </body>
+  <script src="{{ url_for('static', filename='../static/js/yearselector_v2.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/js/tornadograph_v2.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/js/totaltornadoes_v2.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/js/fatalities.js') }}"></script>
+  <script src="{{ url_for('static', filename='../static/js/injuries.js') }}"></script>
+
+</html>
