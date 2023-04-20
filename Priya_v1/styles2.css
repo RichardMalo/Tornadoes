@@ -1,0 +1,117 @@
+.counter {
+  font-size: 2.5rem;
+  display: block;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.axis line {
+  stroke: #706f6f;
+  stroke-width: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.axis path {
+  stroke: #706f6f;
+  stroke-width: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  fill: #2b2929;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 120%;
+}
+
+path.line-0 {
+  fill: none;
+  stroke: #ed3700;
+}
+
+path.line-1 {
+  fill: none;
+  stroke: #2b2929;
+  stroke-dasharray: 2;
+}
+
+path.line-2 {
+  fill: none;
+  stroke: #9c9c9c;
+  stroke-dasharray: 6;
+}
+
+path.line-3 {
+  fill: none;
+  stroke: #1aa23e;
+  stroke-dasharray: 6;
+}
+
+path.line-4 {
+  fill: none;
+  stroke: #df13a2;
+  stroke-dasharray: 6;
+}
+
+path.line-5 {
+  fill: none;
+  stroke: #01de7a;
+  stroke-dasharray: 6;
+}
+
+.serie_label {
+  fill: #2b2929;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 80%;
+}
+
+#title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.equal-height {
+  display: flex;
+  justify-content: center;
+}
+
+.well {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.box-container {
+  margin-bottom: 30px;
+}
+
+#Mapit {
+  height: 500px;
+}
+
+h5 {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card-group [class*='col-'] {
+  float: none;
+}
+
+.small-margin-bottom {
+  margin-bottom: 5px;
+}
+
+.grid-item {
+  background-color: rgba(255, 166, 0, 0.838);
+}
+.monthly-counter {
+  font-size: 1.0rem;
+  display: block;
+  font-weight: 200;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
