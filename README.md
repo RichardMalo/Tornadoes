@@ -3,7 +3,7 @@
 
 ### Analysis 
 
-#### The region which are most effected in the United States
+#### The regions which are most effected in the United States
 - Number of Tornadoes events recorded per month every year until 2021
 - The impact and damges caused due to the Tornadoes i.e., Fatalities and Injuries
 - Strength of Enhanced Fujita Scale recorded
