@@ -8,7 +8,10 @@ from sqlalchemy.pool import NullPool
 app = Flask(__name__)
 
 # Set up database
-engine = create_engine("sqlite:///data/file2.sqlite", poolclass=NullPool)
+db_file = os.path.join("data", "file2.sqlite")
+# use this for full data but much slower load.
+# db_file = os.path.join("data", "tornado_data.sqlite")
+engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
 
 db = scoped_session(sessionmaker(bind=engine))
 
