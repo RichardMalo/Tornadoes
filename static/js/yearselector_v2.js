@@ -9,12 +9,14 @@ function populateYearSelector() {
     // Select the dropdown menu in the HTML by its ID
     let selectTab = d3.select("#selDataset");
     let selectTab2 = d3.select("#selDataset2");
+    let selectTab3 = d3.select("#selDataset3");
     // Add "1950-2021" option at the beginning
     selectTab.append("option").text("1950-2021");
     // Append each year to the selectTab
     sortedYears.forEach(year => {
       selectTab.append("option").text(year);
       selectTab2.append("option").text(year);
+      selectTab3.append("option").text(year);
     });
   });
 }
