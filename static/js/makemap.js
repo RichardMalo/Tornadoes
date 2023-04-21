@@ -2,6 +2,7 @@
 let map;
 let circleMarkers = L.layerGroup();
 let legend; 
+let layerControl;
 
 // Create descriptions
 const efDescriptions = [
@@ -33,16 +34,16 @@ L.Control.Legend = L.Control.extend({
 
   update: function(div) {
     div.innerHTML = '<h4>Tornado EF Scale:</h4>';
-  
+    // Loop through the 6 descriptions to make the text
     for (let i = 0; i < efDescriptions.length; i++) {
       const mag = i;
       const color = getColor(mag);
+      // Love this innerHTML function where you can mix in many parameters to make interesting paterns and text mix for legend.
       div.innerHTML += `<i style="background:${color}; width: 10px; height: 10px; display: inline-block;"></i> ${efDescriptions[i]}<br>`;
     }
   },
 });
 
-// Display map/Clear map
 function displayMap(slonSlatData) {
   if (circleMarkers) {
     circleMarkers.clearLayers();
@@ -60,32 +61,51 @@ function displayMap(slonSlatData) {
   // Sort slonSlatData by mag in descending order
   slonSlatData.sort((a, b) => b.mag - a.mag);
   
-// Use similar method as from class to make the markers.
-slonSlatData.forEach(row => {
-  const mag = parseInt(row.mag);
-  const color = getColor(mag);
-  const marker = L.circleMarker([row.slat, row.slon], {
-    color: color,
-    fillColor: color,
-    fillOpacity: 0.45,
-    radius: 5
+  // Use similar method as from class to make the markers.
+  slonSlatData.forEach(row => {
+    const mag = parseInt(row.mag);
+    const color = getColor(mag);
+    const marker = L.circleMarker([row.slat, row.slon], {
+      color: color,
+      fillColor: color,
+      fillOpacity: 0.45,
+      radius: 5
+    });
+
+    marker.bindPopup(
+      `<b>State: </b>${row.st}<br>` + '<br>' +
+      `<b>EF Scale: </b>${mag}<br>` +
+      `<b>Length: </b>${row.len} miles<br>` +
+      `<b>Width: </b>${row.wid} yards`
+    );
+    circleMarkers.addLayer(marker);
   });
 
-  marker.bindPopup(
-    `<b>State: </b>${row.st}<br>` + '<br>' +
-    `<b>EF Scale: </b>${mag}<br>` +
-    `<b>Length: </b>${row.len} miles<br>` +
-    `<b>Width: </b>${row.wid} yards`
-  );
-  circleMarkers.addLayer(marker);
-});
+  // Remove previous layer control
+  if (map.hasLayer(circleMarkers)) {
+    map.removeLayer(circleMarkers);
+  };
 
-// Add the markers to the map.
-  circleMarkers.addTo(map);
+   // Add the markers to the map.
+   circleMarkers.addTo(map);
 
-  // Only create the legend if it doesn't exist yet
-  if (!legend) {
-    legend = new L.Control.Legend({ position: 'bottomright' });
-    legend.addTo(map);
-  }
-};
+   // Create a layer control and add it to the map
+   const overlayMaps = {
+     "Tornadoes": circleMarkers,
+   };
+ 
+   // Remove previous layer control
+   if (layerControl) {
+     map.removeControl(layerControl);
+   };
+ 
+   // Add new layer control
+   layerControl = L.control.layers(null, overlayMaps, {collapsed: false});
+   layerControl.addTo(map);
+ 
+   // Only create the legend if it doesn't exist yet
+   if (!legend) {
+     legend = new L.Control.Legend({ position: 'bottomright' });
+     legend.addTo(map);
+   }
+ };
