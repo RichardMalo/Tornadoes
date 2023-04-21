@@ -92,4 +92,10 @@
   }
   .card-group [class*='col-'] {
     float:none;
-  }  
+  }
+  canvas {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  
+    
