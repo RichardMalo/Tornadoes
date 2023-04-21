@@ -8,7 +8,9 @@ from sqlalchemy.pool import NullPool
 app = Flask(__name__)
 
 # Set up database
-db_file = os.path.join("data", "file2.sqlite")
+db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
+# use this for 9 variables vs 10
+# db_file = os.path.join("data", "file2.sqlite")
 # use this for full data but much slower load.
 # db_file = os.path.join("data", "tornado_data.sqlite")
 engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
@@ -24,8 +26,7 @@ def index():
 def load_db_data():
     # Select the desired columns
     # yr=year, mag=magnitude, inj=injuries, fat =fatalities, slon=starting longitude, slat =starting latiude, st=state, len=length of tornado, wid=width of tornado.
-    selected_columns = ['yr', 'mag', 'inj', 'fat', 'slon', 'slat']#, 'st', 'len', 'wid']    
-
+    selected_columns = ['yr', 'mo', 'mag', 'inj', 'fat', 'slon', 'slat', 'st', 'len', 'wid']
     # Execute a raw SQL query to fetch the data
     data = db.execute(f"SELECT {', '.join(selected_columns)} FROM tornado_data").fetchall()
 
