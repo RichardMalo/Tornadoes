@@ -68,7 +68,7 @@ function displayMap(slonSlatData) {
     const marker = L.circleMarker([row.slat, row.slon], {
       color: color,
       fillColor: color,
-      fillOpacity: 0.45,
+      fillOpacity: 0.9,
       radius: 5
     });
 

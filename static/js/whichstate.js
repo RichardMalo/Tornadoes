@@ -32,7 +32,7 @@ function createBarChart(topTenStates) {
     let ctx = document.getElementById('myChart').getContext('2d');
     
     // Not sure if this works internally using this JS. Had to modify the HTML too.
-    ctx.canvas.height = 550;
+    ctx.canvas.height = 300;
     
     // Prep chart data
     let chartData = {
@@ -52,7 +52,7 @@ function createBarChart(topTenStates) {
     let chartOptions = {
         maintainAspectRatio: false,
         scales: {
-            x: {ticks: {font: {size: 20,},},},
+            x: {ticks: {font: {size: 20, weight: 'bold',},},},
             y: {beginAtZero: true,},
         },
     };

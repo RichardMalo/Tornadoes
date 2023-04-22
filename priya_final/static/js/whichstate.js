@@ -32,7 +32,7 @@ function createBarChart(topTenStates) {
     let ctx = document.getElementById('myChart').getContext('2d');
     
     // Not sure if this works internally using this JS. Had to modify the HTML too.
-    ctx.canvas.height = 550;
+    ctx.canvas.height = 350;
     
     // Prep chart data
     let chartData = {

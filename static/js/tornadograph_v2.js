@@ -49,7 +49,7 @@ function createTrace(data, mag, color) {
 function createLayout() {
   return {
     title: {
-        text: 'Number of Tornado Events by Magnitude and Year in the USA',
+        text: 'Number of Tornado Events by Magnitude and Year',
         font: {
         size: 25
         }
@@ -83,9 +83,9 @@ function createLayout() {
     },
     legend: {
         title: {
-        text: 'Tornado Magnitude: <br>(Click/Double Click<br>To Toggle Bar Chart Display)<br>',
+        text: '<b>Tornado Magnitude - Enhanced Fujita (EF) Scale</b><br>(Click Legend to Add/Remove Data Points)<br>(Double Click Legend to Isolate Data Points)<br>',
         font: {
-        size: 18
+        size: 13
         }
           }
         },
