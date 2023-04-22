@@ -1,6 +1,18 @@
 # Group-6
 ## Impact of Tornadoes in the United States.
 
+## Files used and how to use.
+Main Folder:
+app.py - this file uses a CSV to load in data if Database is unavailable
+app2.py - this file uses flask to load in a yrmomaginjfatslonslatstlenwid.sqlite file to load. This should be used for presentation.
+index.html in the MAIN directory is just a way to make the code work for githubpages. It is a modified code to make GitHubPages accessible for everyone to view if we dont get this up to AWS.
+Data folder:
+Has the SQLite files used and the CSV file in case all else fails.
+Static folder:
+Has the CSS and main JS files that push information to the templates/index.html.
+Templates folder:
+Houses the main index.html file that app.py and app2.py uses.
+
 ### Analysis 
 
 #### The regions which are most effected in the United States
