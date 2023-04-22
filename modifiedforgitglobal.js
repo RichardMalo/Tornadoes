@@ -1,5 +1,5 @@
 function loadData() {
-    return d3.csv('/data/1950-2021_torn.csv')
+    return d3.csv('1950-2021_torn.csv')
       .then(data => {
         // Convert the CSV data to JSON format
         const jsonData = data.map(d => {
