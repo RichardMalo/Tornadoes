@@ -1,34 +1,48 @@
-//selecting the data 
+// Selecting the data 
 const element = document.querySelector('#selDataset2');
 
-//specifying months from the csv
+// Specifying months from the csv
 const months = ["01","02","03","04","05","06","07","08","09","10","11","12"]
 
-//adding event listener to change upon the selection for monthly data
+// Adding event listener to change upon the selection for monthly data
 element.addEventListener( 'change', async () => {
+
+  // Get the selected year from the dropdown menu
   const selectedYear = element.value;
+
   console.log("Fetching monthly data" + selectedYear);
+
+  // To Load the data from the CSV file
   const data = await loadData();
+
+  // Filtering the data to get only the rows with the selected year
   const yearlyData = data.filter(row => row.yr == selectedYear);
   console.log("Yearly data", yearlyData);
 
-  //filtering month data 
+  //Looping over the months and filter the data for each month
   months.forEach(month => {
     const monthlyData = yearlyData.filter(row => row.mo == month);
     console.log("monthly data", monthlyData);
+
+    // Get the ID of the HTML element corresponding to the month
     const id = monthMap[month];
+
+    // Selecting the HTML element and set its text content to the number of tornadoes in the monthly data
     const selector = d3.select("#" + id);
     selector.text(monthlyData.length);
   });
 });
 
+// Selecting the years dropdown menu
 const yearsDropdown = d3.select("#selDataset2");
+
+// Adding an event listener to the years dropdown menu to update the monthly tornado data
 yearsDropdown.on("change", function() {
   const selectedYear = this.value;
   monthlyTornadoData(selectedYear);
 });
 
-// Define a mapping from month numbers to month IDs
+// Defining a mapping from month numbers to month IDs
 const monthMap = {
   "01": "jan",
   "02": "feb",
@@ -44,6 +58,7 @@ const monthMap = {
   "12": "dec",
 };
 
+// Defining a function to update the monthly tornado data
 function monthlyTornadoData(year, data) {
   const monthlyData = data.filter(row => row.year == year);
 
@@ -51,20 +66,27 @@ function monthlyTornadoData(year, data) {
   monthlyData.forEach(row => {
     const month = row.month;
     const id = monthMap[month];
+
+    // Label: Select the HTML element and set its text content to the number of tornadoes in the monthly data
     const selector = d3.select("#" + id);
     selector.text(row.tornadoes);
   });
 }
 
+// Adding an event listener to load the data for the year 1950 on page load
 window.addEventListener("load", async () => {
     console.log("page is fully loaded");
     const selectedYear = '1950';
     console.log("Fetching monthly data" + selectedYear);
+
+    //Load the data from the CSV file
     const data = await loadData();
+
+    //Filtering the data to get only the rows with the selected year
     const yearlyData = data.filter(row => row.yr == selectedYear);
     console.log("Yearly data", yearlyData);
-  
-    //filtering month data 
+
+    // Looping over the months and filter the data for each month
     months.forEach(month => {
       const monthlyData = yearlyData.filter(row => row.mo == month);
       console.log("monthly data", monthlyData);
@@ -73,3 +95,4 @@ window.addEventListener("load", async () => {
       selector.text(monthlyData.length);
   });
 });
+
