@@ -50,7 +50,7 @@ function displayMap(slonSlatData) {
   }
   circleMarkers = L.layerGroup();
   
-  // centre on the US
+  // centre on the US.
   if (!map) {
     map = L.map('Mapit').setView([40, -100], 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -63,22 +63,27 @@ function displayMap(slonSlatData) {
   
   // Use similar method as from class to make the markers.
   slonSlatData.forEach(row => {
-    const mag = parseInt(row.mag);
-    const color = getColor(mag);
-    const marker = L.circleMarker([row.slat, row.slon], {
-      color: color,
-      fillColor: color,
-      fillOpacity: 0.9,
-      radius: 5
-    });
+  // Skip both slon and slat are 0.
+  if (row.slon === 0 && row.slat === 0) {
+    return;
+  }
 
-    marker.bindPopup(
-      `<b>State: </b>${row.st}<br>` + '<br>' +
-      `<b>EF Scale: </b>${mag}<br>` +
-      `<b>Length: </b>${row.len} miles<br>` +
-      `<b>Width: </b>${row.wid} yards`
-    );
-    circleMarkers.addLayer(marker);
+  const mag = parseInt(row.mag);
+  const color = getColor(mag);
+  const marker = L.circleMarker([row.slat, row.slon], {
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.9,
+    radius: 5
+  });
+
+  marker.bindPopup(
+    `<b>State: </b>${row.st}<br>` + '<br>' +
+    `<b>EF Scale: </b>${mag}<br>` +
+    `<b>Length: </b>${row.len} miles<br>` +
+    `<b>Width: </b>${row.wid} yards`
+  );
+  circleMarkers.addLayer(marker);
   });
 
   // Remove previous layer control
