@@ -24,6 +24,8 @@ Modified the code for index and global.js to make data usable for class.
 - What are the safe places to visit/live in the United States?
 - How are the Tornadoes impacting the cities/states?
 - Probability of Tornado?
+- Which months are prone to tornado activity?
+- Which State, has experienced the greatest tornado activity overall? 
 
 ### Dashboard Analysis
 #### Tornado Dashboard HTML Code:
@@ -58,6 +60,21 @@ The HTML code for the Tornado Dashboard presentation that visualizes tornado dat
 
 ##### yearselector_v2.js
 - JavaScript to populate the unique years and is used for the drop-down button.
+
+#### fatalities.js
+- Javascript code to populate the amount of fatalies.
+
+#### injuries.js
+- Javascript to populate injury count
+
+#### global.js
+- function that retrieves tornado data from an external source using `d3.json()`
+
+#### mapselect_v1.js
+- This JS gets the info to the makemap according to the year
+
+#### monthcards.js 
+- Javascript code to creating list of months and populating in tornado data, with the change of the years in the scroll down menu  
 
 #### Building A Web Application 
 ##### Flask 
