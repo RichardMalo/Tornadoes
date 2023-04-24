@@ -24,6 +24,8 @@ Modified the code for index and global.js to make data usable for class.
 - What are the safe places to visit/live in the United States?
 - How are the Tornadoes impacting the cities/states?
 - Probability of Tornado?
+- Which months are prone to tornado activity?
+- Which State, has experienced the greatest tornado activity overall? 
 
 ### Dashboard Analysis
 #### Tornado Dashboard HTML Code:
