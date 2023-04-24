@@ -1,6 +1,9 @@
 # Group-6
 ## Impact of Tornadoes in the United States 1950-2021.
 
+# Quick Link:
+(http://tornadoesvisual.com)
+
 #### How to Use:
 - To use the dashboard, simply run the Python file "app2.py" (for a faster load use app.py from a CSV, for a load in from a SQLITE file use app2.py) in the command Prompt/Terminal. Use the dropdown menu to select the year to view tornado data for that year. The dashboard will update with the total number of tornadoes, fatalities, injuries for the selected year. The EF-scale toggle will display the magnitude with clicked/selected the tick-box.
 
