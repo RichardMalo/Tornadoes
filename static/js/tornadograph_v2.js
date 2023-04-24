@@ -17,8 +17,11 @@ function filterData(data) {
 // Groups the data by year and tornado magnitude.
 function groupData(filteredData, mag) {
   return d3.nest()
+    // Return only the yr
     .key(function(rawData) { return rawData.yr; })
+    // If mag matches 1 add if it doesnt match 0 dont add, return a sum of that magnitude value for charting.
     .rollup(function(v) { return d3.sum(v, function(magVal) { return magVal.mag === mag ? 1 : 0; }); })
+    // push an array of objects back to the graph which will have a specific year and specific magnitude.
     .entries(filteredData);
 };
 
@@ -32,7 +35,7 @@ function createTrace(data, mag, color) {
     'EF4 (166–200 mph): Devastating damage',
     'EF5 (>200 mph): Incredible damage',
   ];
-
+  
   return {
     x: data.map(function(x1) { return x1.key; }),
     y: data.map(function(y1) { return y1.value; }),
@@ -106,7 +109,7 @@ function createPlot(data, year) {
       return yearPlace.yr == year;
     });
   };
-  // Group the data that was filtered by year for each EF tornado scale 1-5.
+  // Group the data that was filtered by year for each EF tornado scale 0-5.
   let magYear0 = groupData(filteredData, 0);
   let magYear1 = groupData(filteredData, 1);
   let magYear2 = groupData(filteredData, 2);
@@ -114,7 +117,7 @@ function createPlot(data, year) {
   let magYear4 = groupData(filteredData, 4);
   let magYear5 = groupData(filteredData, 5);
   
-  // Current Colors with increasing intensity based on 1-5.
+  // Current Colors with increasing intensity based on 0-5.
   let trace0 = createTrace(magYear0, '0', '#ffa600');
   let trace1 = createTrace(magYear1, '1', '#f18e06');
   let trace2 = createTrace(magYear2, '2', '#e4750a');
