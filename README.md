@@ -61,6 +61,21 @@ The HTML code for the Tornado Dashboard presentation that visualizes tornado dat
 ##### yearselector_v2.js
 - JavaScript to populate the unique years and is used for the drop-down button.
 
+#### fatalities.js
+- Javascript code to populate the amount of fatalies.
+
+#### injuries.js
+- Javascript to populate injury count
+
+#### global.js
+- function that retrieves tornado data from an external source using `d3.json()`
+
+#### mapselect_v1.js
+- This JS gets the info to the makemap according to the year
+
+#### monthcards.js 
+- Javascript code to creating list of months and populating in tornado data, with the change of the years in the scroll down menu  
+
 #### Building A Web Application 
 ##### Flask 
 - Python code for Impact of Tornadoes web application built using the Flask framework. The application loads tornado data from a CSV file and displays it on an HTML page. The code defines two routes - one for the root URL '/' and another for '/data'. The index() function renders the HTML page with the tornado data loaded from the CSV file, while the load_csv_data() function reads the CSV file and returns a JSON string of the selected columns. The Flask development server is started with debug mode turned on. Overall, this code demonstrates how to use Flask to build a web application that can read data from a CSV file and display it on a web page.
