@@ -1,52 +1,51 @@
 # Group-6
 ## Impact of Tornadoes in the United States.
 
-## Files used and how to use.
-Main Folder:
-app.py - this file uses a CSV to load in data if Database is unavailable
-app2.py - this file uses flask to load in a yrmomaginjfatslonslatstlenwid.sqlite file to load. This should be used for presentation.
-Data folder:
-Has the SQLite files used and the CSV file in case all else fails.
-Static folder:
-Has the CSS and main JS files that push information to the templates/index.html.
-Templates folder:
-Houses the main index.html file that app.py and app2.py uses.
-GITONLY folder:
-Modified the code for index and global.js to make data usable for class.
+#### How to Use:
+- To use the dashboard, simply run the Python file "app2.py" (for a faster load use app.py from a CSV, for a load in from a SQLITE file use app2.py) in the command Prompt/Terminal. Use the dropdown menu to select the year to view tornado data for that year. The dashboard will update with the total number of tornadoes, fatalities, injuries for the selected year. The EF-scale toggle will display the magnitude with clicked/selected the tick-box.
+
+#### Files used:
+-   `Templates Folder:`
+-   `index.html`: The main HTML file that contains the dashboard layout and functionality.
+-   `Static/CSS Folder:`
+-	`style.css`: The CSS file that styles the dashboard components.
+-   `Static/JS Folder:`
+-	`global.js`: The load in file to get the data out of data and push it into a window (global variable), that all further files can load from.
+-	`yearselector_v2.js`: The JavaScript file that creates the drop-down menu.
+-	`totaltornadoes_v2.js, fatalities.js, injuries.js `: 3 JavaScript files that calculate/display the total # of tornadoes, fatalities, and injuries for the selected year.
+-	`tornadograph_v2.js`: The JavaScript file that creates the line graph showing the number of tornadoes over time.
+-	`SEL2whatyear.js`: Populates The CSS file that styles the dashboard components.
+-	`makemap.js`: The map file using LEAFLET to update the HTML with a map.
+-	`monthcards.js`: File that calculates and pushes the Monthly data to the HTML calendar cards to quantify the US tornados by month.
+-   `Data Folder:`
+-   `1950-2021_torn.csv`, `file3.sqlite`, `tornado_data.sqlite` - the csv holds all data, the tornado_data also holds all data but in sqlite. file3 holds a filtered version of the sqlite file.
+-   `Docs Folder:` - this folder holds modified code of the original version that runs on GitHubPages for class view.
+-   `Historical Folder:` - this folder holds the previous attempts that lead up to a viable product.
+
 ### Analysis 
 
 #### The regions which are most effected in the United States
-- Number of Tornadoes events recorded per month every year until 2021
+- Number of Tornadoes events recorded per month every year from 1950 until 2021.
 - The impact and damges caused due to the Tornadoes i.e., Fatalities and Injuries
 - Strength of Enhanced Fujita Scale recorded
 
 #### Questions answered from the analysis
-- What are the safe places to visit/live in the United States?
-- How are the Tornadoes impacting the cities/states?
-- Probability of Tornado?
+- What are the safer places to visit/live in the United States vs most affected?
+- How are the Tornadoes impacting the cities/states? Injuries and Deaths.
+- Historical Distribution of Tornadoes?
 - Which months are prone to tornado activity?
-- Which State, has experienced the greatest tornado activity overall? 
+- Which States, have experienced the greatest tornado activity overall? 
 
 ### Dashboard Analysis
 #### Tornado Dashboard HTML Code:
 The HTML code for the Tornado Dashboard presentation that visualizes tornado data from 1950 to 2021 in the United States. The Dashboard displays the total number of tornadoes, fatalities, and injuries that occurred for a selected year, along with a bar graph that shows the magnitude of the Tornadoes over time. Additionally, there is a map that displays tornado locations.
 
 #### Dependencies
-- Leaflet JavaScript
+-   Leaflet JavaScript
 -	Leaflet CSS
 -	Plotly
 -	D3 Library
-
-#### How to Use:
-- To use the dashboard, simply run the Python file "app.py" in the command Prompt/Terminal. Use the dropdown menu to select the year to view tornado data for that year. The dashboard will update with the total number of tornadoes, fatalities, injuries for the selected year. The EF-scale toggle will display the magnitude with clicked/selected the tick-box.
-
-#### Files:
-- index.html`: The main HTML file that contains the dashboard layout and functionality.
--	`style.css`: The CSS file that styles the dashboard components.
--	`yearselector_v2.js`: The JavaScript file that creates the drop-down menu.
--	`consolelogwhatyear.js`: The JavaScript file that logs the selected year to the console.
--	`box123.js`: The JavaScript file that calculates and displays the total number of tornadoes, fatalities, and injuries for the selected year.
--	`tornadograph_v2.js`: The JavaScript file that creates the line graph showing the number of tornadoes over time.
+-   Chart.JS Library
 
 #### JavaScript for the Dashboard:
 ##### tornadograph_v2.js:
@@ -95,7 +94,7 @@ The dashboard also includes visualizations such as a box to view the number of T
 
 #### Dashboard Limitations 
 It's important to note that this dashboard only displays data from https://www.spc.noaa.gov/wcm/#data,https://data.world/dhs/historical-tornado-tracks and therefore the data is available until the year 2021. Additionally, some tornadoes may be missing or have incomplete data such as Damage costs and recovery period.
-
+Other Limitations: This not yet Mobile friendly as this was not in the scope of this project but a next time.
  
 
 
