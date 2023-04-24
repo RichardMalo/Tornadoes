@@ -1,5 +1,5 @@
 # Group-6
-## Impact of Tornadoes in the United States.
+## Impact of Tornadoes in the United States 1950-2021.
 
 #### How to Use:
 - To use the dashboard, simply run the Python file "app2.py" (for a faster load use app.py from a CSV, for a load in from a SQLITE file use app2.py) in the command Prompt/Terminal. Use the dropdown menu to select the year to view tornado data for that year. The dashboard will update with the total number of tornadoes, fatalities, injuries for the selected year. The EF-scale toggle will display the magnitude with clicked/selected the tick-box.
@@ -27,14 +27,15 @@
 #### The regions which are most effected in the United States
 - Number of Tornadoes events recorded per month every year from 1950 until 2021.
 - The impact and damges caused due to the Tornadoes i.e., Fatalities and Injuries
-- Strength of Enhanced Fujita Scale recorded
+- Strength of Enhanced Fujita Scale recorded.
+- Top 10 States.
 
 #### Questions answered from the analysis
 - What are the safer places to visit/live in the United States vs most affected?
 - How are the Tornadoes impacting the cities/states? Injuries and Deaths.
-- Historical Distribution of Tornadoes?
-- Which months are prone to tornado activity?
-- Which States, have experienced the greatest tornado activity overall? 
+- Historical Distribution of Tornadoes? Where they happen.
+- Which months are prone to tornado activity? Calendar view of activity.
+- Which States, have experienced the greatest tornado activity overall? Visual Map Representation.
 
 ### Dashboard Analysis
 #### Tornado Dashboard HTML Code:
@@ -90,11 +91,15 @@ This dashboard presents data on Tornado activity in the United States of America
 -	Bar Chart: Number of Tornado activities by Magnitude and Year in the USA.
 -	Map: Displays the locations of the Tornado activity in the United States.
 
-The dashboard also includes visualizations such as a box to view the number of Tornadoes that occurred in the year, Number of Tornado Fatalities recorded, Number of injuries encountered due to Tornado and Map 
+The dashboard also includes visualizations such as a box to view the number of Tornadoes that occurred in the year, Number of Tornado Fatalities recorded, Number of injuries encountered due to Tornado and Map.
+
+#### Accessibility:
+We tried to make the website adhere to: Web Content Accessibility Guidelines (WCAG) 2.1
 
 #### Dashboard Limitations 
 It's important to note that this dashboard only displays data from https://www.spc.noaa.gov/wcm/#data,https://data.world/dhs/historical-tornado-tracks and therefore the data is available until the year 2021. Additionally, some tornadoes may be missing or have incomplete data such as Damage costs and recovery period.
-Other Limitations: This not yet Mobile friendly as this was not in the scope of this project but a next time.
+Other Limitations: This is not yet Mobile friendly as this was not in the scope of this project but for future iterations and versions as the project expands.
+
  
 
 

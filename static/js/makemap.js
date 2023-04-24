@@ -26,9 +26,13 @@ function getColor(mag) {
 
 // Make a legend controler
 L.Control.Legend = L.Control.extend({
+  // Initial appearnace of the legend control
   onAdd: function() {
+    // Create the element with the CSS classes above using Leaflet DOM utility.
     const div = L.DomUtil.create('div', 'info legend');
+    // Initiilize
     this.update(div);
+    // Return
     return div;
   },
 
@@ -44,13 +48,14 @@ L.Control.Legend = L.Control.extend({
   },
 });
 
+// Clear off previous before drawing new due to YEAR changer.
 function displayMap(slonSlatData) {
   if (circleMarkers) {
     circleMarkers.clearLayers();
   }
   circleMarkers = L.layerGroup();
   
-  // centre on the US
+  // centre on the US 40, -100
   if (!map) {
     map = L.map('Mapit').setView([40, -100], 4);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -67,7 +72,8 @@ function displayMap(slonSlatData) {
   if (row.slon === 0 && row.slat === 0) {
     return;
   };
-
+  
+  // Variables used for markers and their location and coloring.
   const mag = parseInt(row.mag);
   const color = getColor(mag);
   const marker = L.circleMarker([row.slat, row.slon], {
@@ -77,6 +83,7 @@ function displayMap(slonSlatData) {
     radius: 5
   });
 
+  // Marker pop up text layer
   marker.bindPopup(
     `<b>State: </b>${row.st}<br>` + '<br>' +
     `<b>EF Scale: </b>${mag}<br>` +

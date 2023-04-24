@@ -7,12 +7,10 @@ from sqlalchemy.pool import NullPool
 
 app = Flask(__name__)
 
-# Set up database
-db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
-# use this for 9 variables vs 10
-# db_file = os.path.join("data", "file2.sqlite")
+# file with the Selected variables our dashboard uses.
+# db_file = os.path.join("data", "file3.sqlite")
 # use this for full data but much slower load.
-# db_file = os.path.join("data", "tornado_data.sqlite")
+db_file = os.path.join("data", "tornado_data.sqlite")
 engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
 
 db = scoped_session(sessionmaker(bind=engine))
